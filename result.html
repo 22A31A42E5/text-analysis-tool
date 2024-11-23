@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Analysis Result</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1 class="mt-5">Document Analysis Report</h1>
+        <p><strong>Word Count:</strong> {{ report.word_count }}</p>
+        <p><strong>Sentiment:</strong> {{ report.sentiment }}</p>
+
+        <p><strong>Top Keywords:</strong></p>
+        <ul>
+            {% for keyword in report.keywords %}
+                <li>{{ keyword }}</li>
+            {% endfor %}
+        </ul>
+
+        <p><strong>Text Summary:</strong></p>
+        <p>{{ report.text_summary }}</p>
+
+        <h2>Named Entities:</h2>
+        <ul>
+            {% for entity, label in report.entities %}
+                <li>{{ entity }} ({{ label }})</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Full Text:</h2>
+        <pre>{{ text }}</pre>
+        <a href="/" class="btn btn-secondary mt-3">Back to Upload</a>
+    </div>
+</body>
+</html>
